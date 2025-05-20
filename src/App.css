@@ -1,38 +1,280 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom right, #ffd6e8, #d4f8d4, #ffffff);
+  color: #333;
+  animation: fadeIn 1s ease-in;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Fade-in animation */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 40px 20px;
+  animation: fadeIn 1.5s ease;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; /* Centers content horizontally */
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  text-align: center;
+  padding: 2rem;
 }
 
-.App-link {
-  color: #61dafb;
+.profileImage {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #4CAF50;
+  margin-bottom: 20px;
+  animation: fadeIn 1s ease;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Typing Animation */
+.name {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin: 0 auto;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #4CAF50;
+  width: 0;
+  animation: typing 4s steps(40, end) forwards, blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+.subtitle {
+  font-size: 1.4rem;
+  color: #555;
+  margin-top: 10px;
+  animation: fadeIn 2s ease;
+}
+
+.cgpa {
+  font-size: 1.5rem;
+  color: #3f9b42;
+  margin-top: 10px;
+  animation: fadeIn 2.2s ease;
+}
+
+.cgpa span {
+  font-weight: 700;
+  font-size: 1.7rem;
+}
+
+.section {
+  margin-bottom: 40px;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.projectCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  animation: fadeIn 1.5s ease;
+}
+
+.projectCard {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+  animation: slideIn 0.8s ease;
+}
+
+.projectCard:hover {
+  transform: translateY(-5px);
+}
+
+@keyframes slideIn {
+  0% { opacity: 0; transform: translateX(-20px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+.projectCard h3 {
+  margin-top: 0;
+  color: #4CAF50;
+}
+
+.projectCard a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: 600;
+}
+
+.achievementList {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 20px;
+}
+
+.achievementItem {
+  background: #ffffffaa;
+  padding: 12px 18px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  font-weight: 500;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease;
+  animation: fadeInLeft 0.8s ease;
+}
+
+.achievementItem:hover {
+  transform: translateX(5px);
+}
+
+@keyframes fadeInLeft {
+  0% { opacity: 0; transform: translateX(-30px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+.experienceList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.experienceCard {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  animation: fadeInRight 1s ease;
+}
+
+@keyframes fadeInRight {
+  0% { opacity: 0; transform: translateX(30px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+.experienceCard h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.experienceCard .org {
+  font-weight: 600;
+  color: #4CAF50;
+}
+
+.duration {
+  font-style: italic;
+  color: #777;
+  margin-bottom: 8px;
+}
+
+.contactSection {
+  text-align: center;
+  animation: fadeIn 1.2s ease;
+}
+
+.iconRow {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 15px;
+  animation: fadeIn 1.5s ease;
+}
+
+.contactIcon {
+  font-size: 40px;
+  color: #333;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.contactIcon:hover {
+  color: #0077b5;
+  transform: scale(1.1);
+}
+.cgpa {
+  font-size: 1.5rem;
+  color: #3f9b42;
+  margin-top: 10px;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.cgpa:hover {
+  transform: scale(1.1);
+}
+/* Flip Card Styles */
+.flip-card {
+  width: 260px;
+  height: 260px;
+  perspective: 1000px;
+  margin-bottom: 20px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  z-index: 2;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+  z-index: 1;
+}
+
+/* Profile Image Styling */
+.profileImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #4caf50;
+}
+
+/* Zoom effect on CGPA */
+.zoomEffect {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.zoomEffect:hover {
+  transform: scale(1.3);
+  color: #0077ff;
 }

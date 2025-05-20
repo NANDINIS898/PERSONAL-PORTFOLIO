@@ -1,11 +1,14 @@
 import React from "react";
-import profilePic from "./profile.jpg";  // <-- put your picture here and update the path if needed
+import profilePic from "./profile.jpeg";
+import profile2 from "./alternate.jpeg";
+import "./App.css";
+import { FaLinkedin, FaGithub, FaInstagram  } from "react-icons/fa";
 
 const projects = [
   {
     name: "Movie Mate",
     description: "A movie recommendation app with genre and mood-based playlists.",
-    link: "https://github.com/yourusername/movie-mate",
+    link: "https://github.com/NANDINIS898/movie-mate",
   },
   {
     name: "EventEase (In Progress)",
@@ -15,87 +18,169 @@ const projects = [
   {
     name: "Voxify",
     description: "Text to voice converter with high-quality voice synthesis.",
-    link: "https://github.com/yourusername/voxify",
+    link: "https://github.com/NANDINIS898/text-to-speech",
+  },
+  
+  {
+    name: "Kavach",
+    description: "🛡️ Hackathon Project | Team of 4\nChrome extension to detect cyber-secure and phishing webpages using Agent.AI.",
+    link: "https://github.com/NANDINIS898/kavach-main-",
   },
 ];
 
+const achievements = [
+  "🥉 Secured 3rd Place in IIT Delhi TRYST'25 MAPPLS Hackathon (Team of 4)",
+  "🏅 3rd Runner-up at ABESIT Hacknovate 6.0 – Prize pool of $300 by Agent.AI",
+  "🏆 Special Mention at DTU CodeWithDCG Hackathon (Team of 4)",
+];
+
+const experience = [
+  {
+    title: "Frontend Developer Intern",
+    organization: "Ceeras IT Services",
+    duration: "Feb 15, 2025 – July 15, 2025",
+    description: "Worked on building professional UIs using ReactJS and modern CSS from Figma designs for production-level web apps.",
+  },
+  {
+    title: "Executive Head",
+    organization: "E-Cell MSIT",
+    duration: "Ongoing",
+    description: "Leading entrepreneurial initiatives, organizing speaker sessions, and managing cross-functional student teams.",
+  },
+  {
+    title: "Public Relations Representative",
+    organization: "IEEE MSIT",
+    duration: "Ongoing",
+    description: "Handled PR responsibilities for IEEE events, increasing visibility and outreach across campus communities.",
+  },
+];
+
+const contactLinks = {
+  linkedin:"https://www.linkedin.com/in/nandini-gangwar-b47987213/",
+  github: "https://github.com/nandinis898",
+  instagram: "https://www.instagram.com/nandiiinigangwar/"
+};
+
 function App() {
   return (
-    <div style={styles.container}>
-      <header style={styles.header}>
-        <img src={profilePic} alt="Your Name" style={styles.profileImage} />
-        <h1>Hey, I'm Your Name</h1>
-        <p>Software Developer | AI Enthusiast | Cloud Explorer</p>
+    <div className="container">
+      <header className="header">
+        {/* Flip Card for Profile Picture */}
+        <div className="flip-card">
+          <div className="flip-card-inner">
+            <div className="flip-card-front">
+              <img
+                src={profilePic}
+                alt="Nandini Gangwar"
+                className="profileImage"
+              />
+            </div>
+            <div className="flip-card-back">
+              <img
+                src={profile2} // Place this image in the public folder
+                alt="Alternate Back"
+                className="profileImage"
+              />
+            </div>
+          </div>
+        </div>
+
+        <h1 className="name">Hi, I'm Nandini Gangwar</h1>
+        <p className="subtitle">
+          Second year Btech ECE student | GenAI Solutions Architect | Cloud
+          Explorer
+        </p>
+        <h3 className="cgpa">
+          Current CGPA: <span className="zoomEffect">9.23</span>
+        </h3>
       </header>
 
-      <section style={styles.section}>
+      <section className="section">
         <h2>About Me</h2>
         <p>
-          I'm a passionate developer focused on building impactful projects using
-          React, Node.js, AI, and Cloud technologies. Currently exploring
-          generative AI and Kubernetes.
+          I'm a passionate developer focused on building impactful projects
+          using React, Node.js, AI, and Cloud technologies. Currently exploring
+          Generative AI and Kubernetes.
         </p>
       </section>
 
-      <section style={styles.section}>
+      <section className="section">
         <h2>Projects</h2>
-        <ul style={styles.projectList}>
+        <div className="projectCards">
           {projects.map((project) => (
-            <li key={project.name} style={styles.projectItem}>
+            <div key={project.name} className="projectCard">
               <h3>{project.name}</h3>
               <p>{project.description}</p>
-              <a href={project.link} target="_blank" rel="noopener noreferrer">
-                View Project on GitHub
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View on GitHub
               </a>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="section">
+        <h2>Achievements & Certifications</h2>
+        <ul className="achievementList">
+          {achievements.map((item, index) => (
+            <li key={index} className="achievementItem">
+              {item}
             </li>
           ))}
         </ul>
       </section>
 
-      <section style={styles.section}>
+      <section className="section">
+        <h2>Experience</h2>
+        <div className="experienceList">
+          {experience.map((item, index) => (
+            <div key={index} className="experienceCard">
+              <h3>
+                {item.title} –{" "}
+                <span className="org">{item.organization}</span>
+              </h3>
+              <p className="duration">{item.duration}</p>
+              <p>{item.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="section">
         <h2>Contact</h2>
-        <p>Email: your.email@example.com</p>
-        <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">linkedin.com/in/yourprofile</a></p>
-        <p>GitHub: <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">github.com/yourusername</a></p>
+        <div className="iconRow">
+          <a
+            href={contactLinks.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
+            <FaLinkedin className="contactIcon" />
+          </a>
+          <a
+            href={contactLinks.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+          >
+            <FaGithub className="contactIcon" />
+          </a>
+          <a
+            href={contactLinks.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+          >
+            <FaInstagram className="contactIcon" />
+          </a>
+        </div>
       </section>
     </div>
   );
 }
 
-const styles = {
-  container: {
-    maxWidth: "800px",
-    margin: "auto",
-    fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-    padding: "20px",
-    lineHeight: 1.6,
-    color: "#333",
-  },
-  header: {
-    textAlign: "center",
-    marginBottom: "40px",
-  },
-  profileImage: {
-    width: "150px",
-    height: "150px",
-    borderRadius: "50%", // makes the image circular
-    objectFit: "cover",
-    marginBottom: "15px",
-    border: "3px solid #4CAF50",
-  },
-  section: {
-    marginBottom: "40px",
-  },
-  projectList: {
-    listStyleType: "none",
-    paddingLeft: 0,
-  },
-  projectItem: {
-    marginBottom: "20px",
-    borderBottom: "1px solid #ccc",
-    paddingBottom: "10px",
-  },
-};
-
 export default App;
-
