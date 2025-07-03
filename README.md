@@ -9,3 +9,5 @@ A modern and responsive personal portfolio website built using ReactJS. This pro
 ✅ Contact form integration
 ✅ Smooth scroll and Animations interactive UI
 
+🖼️ Preview
+You can also check out the Live Demo - 
