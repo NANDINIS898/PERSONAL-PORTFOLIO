@@ -1,13 +1,22 @@
-🌐 Personal Portfolio Website
-A modern and responsive personal portfolio website built using ReactJS. This project showcases your skills, experience, projects, and contact information—all in one place. Ideal for developers, designers, or any professional looking to build a personal brand online.
+# 🌐 Personal Portfolio Website using ReactJS
 
-📌 Features
-✅ Fully responsive design
-✅ Built with ReactJS
-✅ Project showcase section
-✅ About Me section
-✅ Contact form integration
-✅ Smooth scroll and Animations interactive UI
+A modern and responsive personal portfolio website built using **ReactJS**.  
+This site highlights your skills, experience, projects, resume, and contact details—perfect for showcasing your professional profile.
 
-🖼️ Preview
-You can also check out the Live Demo - 
+---
+
+## 🚀 Features
+
+- ⚡ Fast and responsive design  
+- 📁 Project showcase section  
+- 👩‍💼 About Me section  
+- 🎯 Smooth scroll and interactive UI  
+
+## 🛠️ Tech Stack
+
+- **Frontend**: ReactJS, HTML5, CSS3 
+- **Routing**: React Router DOM  
+- **Deployment**: Netlify  
+
+## 🖼️ Preview
+Live Demo - https://mypersonalportoflio.netlify.app/
