@@ -1,31 +1,35 @@
 import React from "react";
 import profilePic from "./profile.jpeg";
 import profile2 from "./alternate.jpeg";
+import voxifyImage from "./voxify.png";
+import budgetImage from "./budget-tracker.png";
+
 import "./App.css";
-import { FaLinkedin, FaGithub, FaInstagram  } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
 
 const projects = [
   {
     name: "Movie Mate",
     description: "A movie recommendation app with genre and mood-based playlists.",
     link: "https://github.com/NANDINIS898/movie-mate",
+    video: "/final file.mp4",
+    techStack: ["React.js", "Node.js", "TMDB API", "MySQL"]
   },
   {
-    name: "EventEase (In Progress)",
-    description: "AI-driven college event planner to simplify event management.",
-    link: "https://github.com/yourusername/eventease",
+    name: "budget-tracker-app",
+    description: "A Python + Tkinter Expenses tracker app with CSV Files and pie charts.",
+    link: "https://github.com/NANDINIS898/budget-tracker-app",
+    image: budgetImage,
+    techStack: ["Python","Pandas", "Numpy" ,"Tkinter", "Matplotlib", "CSV"]
   },
   {
     name: "Voxify",
     description: "Text to voice converter with high-quality voice synthesis.",
     link: "https://github.com/NANDINIS898/text-to-speech",
-  },
-  
-  {
-    name: "Kavach",
-    description: "🛡️ Hackathon Project | Team of 4\nChrome extension to detect cyber-secure and phishing webpages using Agent.AI.",
-    link: "https://github.com/NANDINIS898/kavach-main-",
-  },
+    live_demo: "https://nandinis898.github.io/VOXIFY/",
+    image: voxifyImage, // Place this image inside /public folder
+     techStack: ["HTML", "CSS", "JavaScript"]
+  }
 ];
 
 const achievements = [
@@ -56,7 +60,7 @@ const experience = [
 ];
 
 const contactLinks = {
-  linkedin:"https://www.linkedin.com/in/nandini-gangwar-b47987213/",
+  linkedin: "https://www.linkedin.com/in/nandini-gangwar-b47987213/",
   github: "https://github.com/nandinis898",
   instagram: "https://www.instagram.com/nandiiinigangwar/"
 };
@@ -77,7 +81,7 @@ function App() {
             </div>
             <div className="flip-card-back">
               <img
-                src={profile2} // Place this image in the public folder
+                src={profile2}
                 alt="Alternate Back"
                 className="profileImage"
               />
@@ -87,11 +91,10 @@ function App() {
 
         <h1 className="name">Hi, I'm Nandini Gangwar</h1>
         <p className="subtitle">
-          Second year Btech ECE student | GenAI Solutions Architect | Cloud
-          Explorer
+          Third year Btech ECE student | GenAI Solutions Architect | Cloud Explorer
         </p>
         <h3 className="cgpa">
-          Current CGPA: <span className="zoomEffect">9.23</span>
+          Cummalative CGPA: <span className="zoomEffect">9</span>
         </h3>
       </header>
 
@@ -111,15 +114,53 @@ function App() {
             <div key={project.name} className="projectCard">
               <h3>{project.name}</h3>
               <p>{project.description}</p>
-              <a
+
+              {/* Render image if available */}
+              {project.image && (
+                <img
+                  src={project.image}
+                  alt={project.name}
+                  className="projectImage"
+                />
+              )}
+
+              {/* Render video if it's an MP4 */}
+              {project.video && project.video.endsWith(".mp4") && (
+                <video className="projectVideo" controls width="100%">
+                  <source src={project.video} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              )}
+              <div className="projectLinks">
+                <a
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-              >
-                View on GitHub
-              </a>
+                >
+                  View on GitHub
+                </a>
+                {project.live_demo && (
+                  <a
+                  href={project.live_demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >
+                    Live Demo
+                  </a>
+                )}
+              </div>
+              {project.techStack && (
+  <div className="techStack">
+    <strong>Tech Stack Used:</strong>
+    <ul>
+      {project.techStack.map((tech, idx) => (
+        <li key={idx}>{tech}</li>
+      ))}
+    </ul>
+  </div>
+)}
             </div>
-          ))}
+           ))}
         </div>
       </section>
 
@@ -140,8 +181,7 @@ function App() {
           {experience.map((item, index) => (
             <div key={index} className="experienceCard">
               <h3>
-                {item.title} –{" "}
-                <span className="org">{item.organization}</span>
+                {item.title} – <span className="org">{item.organization}</span>
               </h3>
               <p className="duration">{item.duration}</p>
               <p>{item.description}</p>
