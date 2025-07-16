@@ -46,15 +46,15 @@ const experience = [
     description: "Worked on building professional UIs using ReactJS and modern CSS from Figma designs for production-level web apps.",
   },
   {
-    title: "Executive Head",
+    title: "PRESIDENT",
     organization: "E-Cell MSIT",
     duration: "Ongoing",
-    description: "Leading entrepreneurial initiatives, organizing speaker sessions, and managing cross-functional student teams.",
+    description: "Leading entrepreneurial initiatives and a team of 120+ members, organizing big scale events and managing cross-functional student teams.",
   },
   {
     title: "Public Relations Representative",
     organization: "IEEE MSIT",
-    duration: "Ongoing",
+    duration: "feb-2025-june-2025",
     description: "Handled PR responsibilities for IEEE events, increasing visibility and outreach across campus communities.",
   },
 ];
